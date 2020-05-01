@@ -1,26 +1,36 @@
 # ftx-api-ws
 
-    npm install ftx-api-ws
+    npm install ftx-ws
 
 API wrapper for the [FTX WS API](https://docs.ftx.com/#ws-api). Please refer to [their documentation](https://docs.ftx.com/#ws-api) for eveything explained. Check out `sample.js` for lib usage.
 
-**This is a WIP**
+# Sample
+```
+const FTXWs = require('ftx-ws');
 
-This is a low level wrapper with zero dependencies focussed on simplicity:
+// including private channels:
+// const ftx = new FTXWs({
+//   key: 'x',
+//   secret: 'y',
+//   subaccount: 'z'
+// })
 
-- No complex code
-- Only `ws` as third party lib
+// only public channels:
+const ftx = new FTXWs();
 
-This is a fork based of my deribit library: https://github.com/askmike/deribit-v2-ws
+const go = async () => {
+  await ftx.connect();
 
-## Usage
+  ftx.subscribe('ticker', 'BTC-PERP');
+  ftx.on('BTC-PERP::ticker', console.log);
 
-See sample.js.
+  if you passed api credentials:
+  ftx.subscribe('fills');
+  ftx.on('fills', console.log);
 
-## TODO
+  if you want to know when the status of underlying socket changes
+  ftx.on('statusChange', console.log);
+}
 
-- More testing
-
-## Final
-
-If this library is helping you trade better on FTX feel free to use [my ref link](https://ftx.com/#a=1275753).
+go();
+```

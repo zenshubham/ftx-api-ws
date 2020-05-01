@@ -1,4 +1,4 @@
-const FTXWs = require('./');
+const FTXWs = require('ftx-ws');
 
 // including private channels:
 // const ftx = new FTXWs({
@@ -16,11 +16,11 @@ const go = async () => {
   ftx.subscribe('ticker', 'BTC-PERP');
   ftx.on('BTC-PERP::ticker', console.log);
 
-  // if you passed api credentials:
+  if you passed api credentials:
   ftx.subscribe('fills');
   ftx.on('fills', console.log);
 
-  // if you want to know when the status of underlying socket changes
+  if you want to know when the status of underlying socket changes
   ftx.on('statusChange', console.log);
 }
 

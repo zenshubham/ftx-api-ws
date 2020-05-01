@@ -1,23 +1,25 @@
 {
-  "name": "ftx-api-ws",
-  "version": "0.0.7",
-  "description": "light wrapper for ftx websocket api",
+  "name": "ftx-ws",
+  "version": "0.0.1",
+  "description": "FTX ws connector",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "github.com/askmike/ftx-api-ws"
+    "url": "github.com/zenshubham/ftx-ws"
   },
   "keywords": [
     "bitcoin",
     "trading",
     "crypto",
     "exchange",
-    "profit"
+    "profit",
+    "ftx",
+    "websocket"
   ],
-  "author": "Mike van Rossum <mike@mvr.me>",
+  "author": "Shubham Singh",
   "license": "MIT",
   "dependencies": {
     "ws": "^7.1.1"
